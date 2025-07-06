@@ -15,6 +15,7 @@
                 <img src="resource/images/logo.png" alt="LanguaFLEX Logo" class="logo-icon">
                 <span class="logo-text">Langua<span class="logo-highlight">FLEX</span></span>
             </div>
+
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">BERANDA</a></li>
                 <li><a href="#features" class="nav-link">FITUR</a></li>
@@ -323,6 +324,23 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+            });
+        });
+
+        // Burger menu toggle
+        const burgerMenu = document.getElementById('burger-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        burgerMenu.addEventListener('click', function() {
+            burgerMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                burgerMenu.classList.remove('active');
+                navMenu.classList.remove('active');
             });
         });
 
